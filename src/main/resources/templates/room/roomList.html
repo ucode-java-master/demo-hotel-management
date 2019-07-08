@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -32,37 +31,42 @@
     </div>
 </nav>
 
+<a th:href="@{/room/add}">Add a new Room</a>
 
-<a class="nav-link" th:href="@{/address/add}">Add a new address</a>
-
-<div class="address-show">
-    <h3>These are the addresses</h3>
-    <ul th:each="address, status : ${addresses}">
-        <li th:style="${status.odd}? 'font-weight:bold;'">
+<div>
+    <h3>These are the rooms</h3>
+    <ul th:each="room, status: ${rooms}">
+        <li>
             <div>
-                <label>Nr. Crt:</label>
+                <label th:style="'font-weight:bold;'">Nr. Crt:</label>
                 <span th:text="${status.index + 1}"></span>
             </div>
             <div>
-                <label>Country:</label>
-                <span th:text="${address.getCountry()}"></span>
+                <label th:style="'font-weight:bold;'">Number:</label>
+                <span th:text="${room.getNumber()}"></span>
             </div>
-            <div>City:</div>
-            <div th:text="${address.getCity()}"></div>
-            <div>Street:</div>
-            <div th:text="${address.getStreet()}"></div>
-            <div>Number:</div>
-            <div th:text="${address.getNumber()}"></div>
-            <div>Postal Code:</div>
-            <div th:text="${address.getPostalCode()}"></div>
-            <div>Current Date:</div>
-            <div th:text="${address.getCurrentDate()}"></div>
+            <div>
+                <label th:style="'font-weight:bold;'">Type of Room:</label>
+                <span th:text="${room.getTypeOfRoom()}"></span>
+            </div>
+            <div>
+                <label th:style="'font-weight:bold;'">View:</label>
+                <span th:text="${room.getView()}"></span>
+            </div>
+            <div>
+                <label th:style="'font-weight:bold;'">Occupied status:</label>
+                <span th:text="${room.getOccupiedStatus()}"></span>
+            </div>
+            <div>
+                <label th:style="'font-weight:bold;'">Price:</label>
+                <span th:text="${room.getPrice()}"></span>
+            </div>
+            <a th:href="@{/room/edit/{id}(id=${status.index})}">Edit room</a>
             <br/>
-            <a class="nav-link" th:href="@{/address/edit/{id}(id=${status.index})}" th:method="GET">Edit Address</a>
-            <a class="nav-link" th:href="@{/address/delete/{id}(id=${status.index})}" th:method="GET">Delete Address</a>
+            <a th:href="@{/room/delete/{id}(id=${status.index})}">Delete room</a>
+
         </li>
     </ul>
-
 </div>
 
 </body>

@@ -31,21 +31,36 @@
     </div>
 </nav>
 
-<main role="main" class="container">
-    <div class="starter-template">
-        <h1>Spring Boot Web Thymeleaf Example</h1>
-        <h2>
-            <span th:text="'Hello, ' + ${message != null && !message.equals('') ? message : 'ad'}">..!..</span>
-        </h2>
+<form th:object="${roomForm}" th:action="@{/room/edit/{id}(id=${roomId})}" th:method="POST">
+
+    <div>
+        <label for="number">Number</label>
+        <input type="number" id="number" th:field="*{number}">
+        <br/>
     </div>
+    <div>
+        <label for="toroom">Type of Room</label>
+        <input type="text" id="toroom" th:field="*{typeOfRoom}">
+        <br/>
+    </div>
+    <div>
+        <label for="view">View</label>
+        <input type="text" id="view" th:field="*{view}">
+        <br/>
+    </div>
+    <div>
+        <label for="osta">Occupied Status</label>
+        <input type="text" id="osta" th:field="*{occupiedStatus}">
+        <br/>
+    </div>
+    <div>
+        <label for="price">Price</label>
+        <input type="number" id="price" th:field="*{price}">
+        <br/>
+    </div>
+    <input type="submit" value="Save Room">
 
-</main>
-
-<a th:href="@{/hello(name='Who are you?',asd='asd')}">Not User?</a>
-
-<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
-
-<script type="text/javascript" th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+</form>
 
 </body>
 </html>
