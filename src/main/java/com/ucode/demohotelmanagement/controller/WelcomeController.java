@@ -20,8 +20,10 @@ public class WelcomeController {
     }
 
     @GetMapping("/hello")
-    public String mainWithParam(@RequestParam(name = "name", required = false, defaultValue = "") String name, Model model) {
-        LOGGER.info("mainWithParam /hello ");
+    public String mainWithParam(
+            @RequestParam(name = "name", required = false, defaultValue = "") String name,
+            Model model) {
+        LOGGER.error("mainWithParam /hello "+name);
         model.addAttribute("message", name);
         return "welcome";
     }

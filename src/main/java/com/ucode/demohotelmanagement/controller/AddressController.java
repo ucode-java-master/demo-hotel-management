@@ -27,7 +27,7 @@ public class AddressController {
     }
 
     @GetMapping("/address/add")
-    public String startAddForm(Model model, HttpServletRequest request) {
+    public String startAddForm(Model model) {
         LOGGER.info("startAddForm: navigate to addAddress");
 
         model.addAttribute("addressForm", new Address());

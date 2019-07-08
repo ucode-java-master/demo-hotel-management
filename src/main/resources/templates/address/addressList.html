@@ -38,10 +38,10 @@
         <li th:style="${status.odd}? 'font-weight:bold;'">
             <div >Nr. Crt:</div>
             <div th:text="${status.index + 1}"></div>
-            <div>City:</div>
-            <div th:text="${address.getCity()}"></div>
             <div>Country:</div>
             <div th:text="${address.getCountry()}"></div>
+            <div>City:</div>
+            <div th:text="${address.getCity()}"></div>
             <div>Street:</div>
             <div th:text="${address.getStreet()}"></div>
             <div>Number:</div>
@@ -51,8 +51,8 @@
             <div>Current Date:</div>
             <div th:text="${address.getCurrentDate()}"></div>
             <br/>
-            <a class="nav-link" th:href="@{/address/edit/{id}(id=${status.index})}" th:method="DELETE">Edit Address</a>
-            <a class="nav-link" th:href="@{/address/delete/{id}(id=${status.index})}" th:method="DELETE">Delete Address</a>
+            <a class="nav-link" th:href="@{/address/edit/{id}(id=${status.index})}" th:method="GET">Edit Address</a>
+            <a class="nav-link" th:href="@{/address/delete/{id}(id=${status.index})}" th:method="GET">Delete Address</a>
         </li>
     </ul>
 
