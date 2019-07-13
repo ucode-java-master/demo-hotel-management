@@ -47,16 +47,30 @@
                 <label>Country:</label>
                 <span th:text="${address.getCountry()}"></span>
             </div>
-            <div>City:</div>
-            <div th:text="${address.getCity()}"></div>
-            <div>Street:</div>
-            <div th:text="${address.getStreet()}"></div>
-            <div>Number:</div>
-            <div th:text="${address.getNumber()}"></div>
-            <div>Postal Code:</div>
-            <div th:text="${address.getPostalCode()}"></div>
-            <div>Current Date:</div>
-            <div th:text="${address.getCurrentDate()}"></div>
+            <div>
+                <label>City:</label>
+                <span th:text="${address.getCity()}"></span>
+            </div>
+            <div>
+                <label>Street:</label>
+                <span th:text="${address.getStreet()}"></span>
+            </div>
+            <div>
+                <label>Number:</label>
+                <span th:text="${address.getNumber()}"></span>
+            </div>
+            <div>
+                <label>Number:</label>
+                <span th:text="${address.getNumber()}"></span>
+            </div>
+            <div>
+                <label>Postal Code:</label>
+                <span th:text="${address.getPostalCode()}"></span>
+            </div>
+            <div>
+                <label>Current Date:</label>
+                <span th:text="${address.getCurrentDate()}"></span>
+            </div>
             <br/>
             <a class="nav-link" th:href="@{/address/edit/{id}(id=${status.index})}" th:method="GET">Edit Address</a>
             <a class="nav-link" th:href="@{/address/delete/{id}(id=${status.index})}" th:method="GET">Delete Address</a>
