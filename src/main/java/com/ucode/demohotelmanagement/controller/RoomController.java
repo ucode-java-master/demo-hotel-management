@@ -1,5 +1,6 @@
 package com.ucode.demohotelmanagement.controller;
 
+import com.ucode.demohotelmanagement.model.OccupiedStatus;
 import com.ucode.demohotelmanagement.model.Room;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class RoomController {
     static {
         rooms = new ArrayList<>();
 
-        rooms.add(new Room(102, "king size", "beautiful", "free", 10));
+        rooms.add(new Room(102, "king size", "beautiful", OccupiedStatus.FREE, 10));
     }
 
     @GetMapping("/room/list")
@@ -40,6 +41,7 @@ public class RoomController {
         LOGGER.info("addRoomStart: ");
 
         model.addAttribute("roomForm", new Room());
+        model.addAttribute("occupiedStatusValues", OccupiedStatus.values());
 
         return "room/addRoom";
     }
@@ -59,6 +61,7 @@ public class RoomController {
 
         model.addAttribute("roomForm", rooms.get(id));
         model.addAttribute("roomId", id);
+        model.addAttribute("occupiedStatusValues", OccupiedStatus.values());
 
         return "room/editRoom";
     }

@@ -50,12 +50,14 @@
     </div>
     <div>
         <label for="osta">Occupied Status</label>
-        <input type="text" id="osta" th:field="*{occupiedStatus}">
+        <select id="osta" th:field="*{occupiedStatus}">
+            <option th:each="status :${occupiedStatusValues}" th:value="${status.name()}" th:text="${status.getDisplayName()}"></option>
+        </select>
         <br/>
     </div>
     <div>
         <label for="price">Price</label>
-        <input type="number" id="price" th:field="*{price}">
+        <input type="number" step="any" id="price" th:field="*{price}">
         <br/>
     </div>
     <input type="submit" value="Add Room">

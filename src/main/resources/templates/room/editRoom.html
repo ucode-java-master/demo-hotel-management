@@ -50,7 +50,9 @@
     </div>
     <div>
         <label for="osta">Occupied Status</label>
-        <input type="text" id="osta" th:field="*{occupiedStatus}">
+        <select id="osta" th:field="*{occupiedStatus}">
+            <option th:each="status :${occupiedStatusValues}" th:value="${status.name()}" th:text="${status.getDisplayName()}"></option>
+        </select>
         <br/>
     </div>
     <div>

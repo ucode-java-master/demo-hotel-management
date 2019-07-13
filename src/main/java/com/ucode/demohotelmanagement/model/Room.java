@@ -13,7 +13,7 @@ public class Room {
     private int number;
     private String typeOfRoom;
     private String view;
-    private String occupiedStatus;
+    private OccupiedStatus occupiedStatus;
     private double price;
 
 }
