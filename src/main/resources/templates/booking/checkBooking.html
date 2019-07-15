@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hotel Management</title>
+    <!--/*/ <th:block th:include="fragments/general.html :: header">
+    </th:block> /*/-->
+</head>
+<body>
+
+<nav th:replace="fragments/general.html :: navbar"></nav>
+
+
+<form th:object="${checkBookForm}" th:action="@{/booking/check}" th:method="POST">
+
+    <div>
+        <label for="startDate">Start</label>
+        <input type="date" id="startDate" th:field="*{start}">
+        <br/>
+    </div>
+    <div>
+        <label for="endDate">End</label>
+        <input type="date" id="endDate" th:field="*{end}">
+        <br/>
+    </div>
+    <input type="submit" value="Check Availability">
+
+</form>
+
+<h3 th:unless="${availableRooms.isEmpty()}">There are rooms available</h3>
+<h3 th:if="${availableRooms.isEmpty()}">There are no rooms available</h3>
+<ul>
+    <li th:each="roomNumber : ${availableRooms}">
+        <div>
+            <label>Room Number:</label>
+            <span th:text="${roomNumber}"></span>
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>

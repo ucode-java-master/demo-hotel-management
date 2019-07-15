@@ -21,6 +21,7 @@ public class RoomService {
         rooms = new HashMap<>();
 
         rooms.put(102, new Room(102, "king size", "beautiful", OccupiedStatus.FREE, 10));
+        rooms.put(12, new Room(12, "queen size", "ordinary", OccupiedStatus.FREE, 10));
     }
 
 

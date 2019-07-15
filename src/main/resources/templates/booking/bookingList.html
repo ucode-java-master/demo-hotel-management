@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hotel Management</title>
+    <!--/*/ <th:block th:include="fragments/general.html :: header">
+    </th:block> /*/-->
+</head>
+<body>
+
+<nav th:replace="fragments/general.html :: navbar"></nav>
+
+<a class="nav-link" th:href="@{/booking/check}">Check availability</a>
+
+<div>
+    <h3>These are the bookings</h3>
+    <ul>
+        <li th:each="booking, status : ${bookings}">
+            <div>
+                <label>Nr. Crt:</label>
+                <span th:text="${status.index + 1}"></span>
+            </div>
+            <div>
+                <label>Room Number:</label>
+                <span th:text="${booking.getRoom().getNumber()}"></span>
+            </div>
+            <div>
+                <label>Start booking:</label>
+                <span th:text="${booking.getStart()}"></span>
+            </div>
+            <div>
+                <label>End booking:</label>
+                <span th:text="${booking.getEnd()}"></span>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>

@@ -8,17 +8,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Address {
+@AllArgsConstructor
+public class Booking {
 
-    private String country;
-    private String city;
-    private String street;
-    private int number;
-    private String postalCode;
+    private Room room;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate currentDate;
-
+    private LocalDate start;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate end;
 }
-
