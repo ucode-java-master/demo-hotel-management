@@ -63,11 +63,15 @@ public class RoomController {
     }
 
     @PostMapping("/room/edit/{id}")
-    public String editRoomForm(@PathVariable int id, @ModelAttribute("roomForm") Room room) {
+    public String editRoomForm(@PathVariable int id, @ModelAttribute("roomForm") Room room, Model model) {
         LOGGER.info("editRoomForm: " + room);
 
-        roomService.updateRoom(id, room);
-
+        try {
+            roomService.updateRoom(id, room);
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", "invalid id");
+            return "room/editRoom";
+        }
         return "redirect:/room/list";
     }
 

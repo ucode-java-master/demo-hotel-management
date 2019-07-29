@@ -46,8 +46,12 @@ public class RoomService {
     public void updateRoom(int id, Room room) {
         LOGGER.info("updateRoom");
 
-        rooms.remove(id);
-        doAddRoom(room);
+        if(rooms.containsKey(id)) {
+            rooms.remove(id);
+            doAddRoom(room);
+        } else {
+            throw new IllegalArgumentException("nu exista camera respectiva");
+        }
     }
 
     private void doAddRoom(Room room) {
